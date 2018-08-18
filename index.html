@@ -4,9 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
     <title>Stardew Valley Fishing Calculator</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-header__title">Stardew Valley Fishing Calculator</h1>
+        </div>
+        <div class="calculator">
+            <div>
+                <p class="calculator__text__intro">
+                    This calculator is used to show how much xp your fishing session will net you.
+                </p>
+            </div>
+            <div class="calculator__selections">
+                <div class="item-selector">
+                    <p>What did you catch?</p>
+                    <select class="item-selector__dropdown" id="item-selector__dropdown">
+                        <option value="0">Select Item</option>
+                        <option value="1">Trash</option>
+                        <option value="2">Algae</option>
+                        <option value="3">Crab Pot</option>
+                        <option value="4">Fish</option>
+                    </select>
+                    <button>Next</button>
+                </div>
+                <div class="fish-selector">
+                    <p>Which fish did you catch?</p>
+                    <select class="fish-selector__dropdown" id="fish-selector__dropdown">
+                            <option value="0">Select Fish</option>
+                            <option value="1">Sunfish</option>
+                            <option value="2">Sardine</option>
+                            <option value="3">Herring</option>
+                            <option value="4">Halibut</option>
+                    </select>
+                    <button>Next</button>
+                </div>
+                <div class="fish-quality">
+                    <p>What quality fish did you catch?</p>
+                    <label>Normal
+                        <input type="radio">
+                    </label>
+                    <label>Silver
+                            <input type="radio">
+                    </label>
+                    <label>Gold
+                            <input type="radio">
+                    </label>
+                    <button>Next</button>
+                </div>
+                <div class="modifiers">
+                    <p>Did you have any catch modifiers?</p>
+                    <label>Treasure
+                        <input type="checkbox">
+                    </label>
+                    <label>Perfect Catch
+                            <input type="checkbox">
+                    </label>
+                    <label>Legendary Fish
+                            <input type="checkbox">
+                    </label>
+                    <button>Next</button>
+                </div>
+            </div>
+            <div class="calculator__display">
+                <p>Here is your total XP!</p>
+                <!-- Display each item with its total xp amount, adn then a total xp amount -->
+                <p>Herring: 13xp</p>
+                <p></p>Halibut: 18xp</p>
+
+                <p></p>Total: 31xp</p>
+            </div>
+            
+
+        </div>
+
+    </div>
 </body>
 </html>
