@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <script src="fish.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
+    <script src="fish.js"></script>
     <title>Stardew Valley Fishing Calculator</title>
 </head>
 <body>
@@ -15,13 +16,14 @@
             <h1 class="page-header__title">Stardew Valley Fishing Calculator</h1>
         </div>
         <div class="calculator">
-            <div>
+            <div class="calculator__text">
                 <p class="calculator__text__intro">
-                    This calculator is used to show how much xp your fishing session will net you.
+                    This calculator is used to show how much xp your fishing session will net you. Are you ready to get started?
                 </p>
+                <button class="start-item-selector">Calculate!</button>
             </div>
             <div class="calculator__selections">
-                <div class="item-selector">
+                <div class="item-selector display-none">
                     <p>What did you catch?</p>
                     <select class="item-selector__dropdown" id="item-selector__dropdown">
                         <option value="0">Select Item</option>
@@ -30,9 +32,9 @@
                         <option value="3">Crab Pot</option>
                         <option value="4">Fish</option>
                     </select>
-                    <button>Next</button>
+                    <button class="start-fish-selector">Next</button>
                 </div>
-                <div class="fish-selector">
+                <div class="fish-selector display-none">
                     <p>Which fish did you catch?</p>
                     <select class="fish-selector__dropdown" id="fish-selector__dropdown">
                             <option value="0">Select Fish</option>
@@ -41,22 +43,22 @@
                             <option value="3">Herring</option>
                             <option value="4">Halibut</option>
                     </select>
-                    <button>Next</button>
+                    <button class="start-quality-selector">Next</button>
                 </div>
-                <div class="fish-quality">
+                <div class="fish-quality display-none">
                     <p>What quality fish did you catch?</p>
                     <label>Normal
-                        <input type="radio">
+                        <input type="radio" name="quality" value="normal">
                     </label>
                     <label>Silver
-                            <input type="radio">
+                            <input type="radio" name="quality" value="silver">
                     </label>
                     <label>Gold
-                            <input type="radio">
+                            <input type="radio" name="quality" value="gold">
                     </label>
-                    <button>Next</button>
+                    <button class="start-modifier-selector">Next</button>
                 </div>
-                <div class="modifiers">
+                <div class="modifiers display-none">
                     <p>Did you have any catch modifiers?</p>
                     <label>Treasure
                         <input type="checkbox">
@@ -67,19 +69,18 @@
                     <label>Legendary Fish
                             <input type="checkbox">
                     </label>
-                    <button>Next</button>
+                    <button class="start-final-calculation">Calculate!</button>
                 </div>
             </div>
-            <div class="calculator__display">
-                <p>Here is your total XP!</p>
+            <div class="calculator__display display-none">
+                <p>Here is your item XP!</p>
                 <!-- Display each item with its total xp amount, adn then a total xp amount -->
                 <p>Herring: 13xp</p>
                 <p></p>Halibut: 18xp</p>
 
                 <p></p>Total: 31xp</p>
+                <button class="addition-item">Calculate Another Item?</button><button class="reset-calculator">Restart Calculation</button>
             </div>
-            
-
         </div>
 
     </div>

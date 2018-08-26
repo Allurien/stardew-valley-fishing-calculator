@@ -1,6 +1,9 @@
 body {
     margin: 0;
 }
+.display-none {
+    display: none;
+}
 .container {
     width: 100vw;
     height: 100vh;
@@ -15,12 +18,9 @@ height: 10%;
 }
 .calculator{
     background-color: blueviolet;
-    height: 90%;
     text-align: center;
-}
-.calculator__display{
-    display: flex;
-    flex-direction: column;
+    height: 88%;
+    padding-top: 2%;
 }
 .calculator__text__intro{
     margin-top: 0;
@@ -32,4 +32,6 @@ margin: auto;
 .fish-selector__dropdown{
     display:block;
     margin: auto;
+}
+.calculator__display{
 }
