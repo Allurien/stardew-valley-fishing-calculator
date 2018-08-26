@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+}
+.display-none {
+    display: none;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+.page-header {
+text-align: center;
+background-color: aquamarine;
+height: 10%;
+}
+.page-header__title{
+    margin: 0;
+}
+.calculator{
+    background-color: blueviolet;
+    text-align: center;
+    height: 88%;
+    padding-top: 2%;
+}
+.calculator__text__intro{
+    margin-top: 0;
+}
+.item-selector__dropdown{
+display:block;
+margin: auto;
+}
+.fish-selector__dropdown{
+    display:block;
+    margin: auto;
+}
+.calculator__display{
+}
