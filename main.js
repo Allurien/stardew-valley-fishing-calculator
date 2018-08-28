@@ -19,27 +19,25 @@ const startCalculator = () => {
 const startFishSelector = () => {
     $(".item-selector").addClass("display-none");
     const item = $(".item-selector :selected").text();
-    let itemNumber = null;
+    let itemBaseXP = null;
     if(item === "Trash" || item === "Algae"){
         calculationInfo.itemType = item;
-        calculationInfo.itemsCalculated = calculationInfo.itemsCalculated + 1;
-        itemNumber = `calculatorItems.item${calculationInfo.itemsCalculated}`
-        itemNumber.baseXP = 3;
+        itemBaseXP = 3;
         $(".modifiers").removeClass("display-none");
-        // $(".calculator__display").append(`<p>Your ${item} is worth 3xp.</p>`)
         return;
     }
     if(item === "Crab Pot"){
         calculationInfo.itemType = item;
-        calculationInfo.itemsCalculated = calculationInfo.itemsCalculated + 1;
-        itemNumber = `calculatorItems.item${calculationInfo.itemsCalculated}`
-        itemNumber.baseXP = 3;
+        itemBaseXP = 5;
+        addedItems.push({"item": item, "xp": 5});
         $(".calculator__display").removeClass("display-none");
         $(".calculator__display").append(`<p>Your ${item} is worth 5xp.</p>`)
         return;
     }
 
     if(item==="Fish"){
+        calculationInfo.itemType = item;
+
         $(".fish-selector").removeClass("display-none");
         return;
     }
@@ -66,7 +64,5 @@ const calculationInfo = {
     "fishQuality": null,
     "modifiers": null
 }
-const calculatorItems = {
-
-}
+const addedItems = [];
 
