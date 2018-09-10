@@ -2,7 +2,6 @@ $(document).ready(goGoApp);
 function goGoApp(){
     const fishCalc = new Calculator;
     fishCalc.addWizard();
-    $(".addition-item").click(fishCalc.addWizard);
 }
 class Fish {
     constructor(fishName, xp, basePrice){
@@ -39,14 +38,35 @@ class Calculator {
         this.addedItems = [];
         this.addFish = this.addFish.bind(this);
         this.addItem = this.addItem.bind(this);
+        this.createItemSelectorElement = this.createItemSelectorElement.bind(this);
     }
     addWizard(){
         const fishWiz = new FishWizard(this.addFish, this.addItem);
+        console.log("adding a new wizard");
         $(".start-item-selector").click(fishWiz.startCalculator);
         $(".start-fish-selector").click(fishWiz.startFishSelector);
         $(".start-quality-selector").click(fishWiz.startQualitySelector);
         $(".start-modifier-selector").click(fishWiz.startModifierSelector);
         $(".start-final-calculation").click(fishWiz.startFinalCalculation);
+        $(".addition-item").click(this.addAdditionalWizard);
+    }
+    addAdditionalWizard(){
+        createItemSelectorElement();
+        this.addWizard();
+    }
+    createItemSelectorElement(){
+        const itemSelector = $("<div>").addClass("item-selector");
+        const selectBox = $("<select>").addClass("item-selector__dropdown")
+                            .append(itemSelectorOptions.map(function(item) {
+                                return $('<option/>', {
+                                    value: item,
+                                    text: item
+                                })
+                                }))
+                            .attr("id", "item-selector__dropdown");
+        const itemSelectButton = $("<button>Next</button>").addClass("start-fish-selector").live("click", this.startFishSelector);
+        $(itemSelector).append(selectBox, itemSelectButton);
+        $(".calculator__selections").append(itemSelector);
     }
     addFish(fishName, difficulty, quality, basePrice){
         const fish = new Fish(fishName, difficulty, quality, basePrice)
@@ -90,13 +110,28 @@ class FishWizard {
         this.addItem = addItem;
 
     }
+    
     startCalculator(){
+        const itemSelectorOptions = ["Select Item", "Trash", "Algae", "Crab Pot", "Fish"];
         console.log('started fish wizard!');
         $('.calculator__text__item').text('What did you catch?');
         $('.start-item-selector').detach();
-        $(".item-selector").removeClass("display-none");
+        const itemSelector = $("<div>").addClass("item-selector");
+        const selectBox = $("<select>").addClass("item-selector__dropdown")
+                            .append(itemSelectorOptions.map(function(item) {
+                                return $('<option/>', {
+                                    value: item,
+                                    text: item
+                                })
+                                }))
+                            .attr("id", "item-selector__dropdown");
+        const itemSelectButton = $("<button>Next</button>").addClass("start-fish-selector");
+        $(itemSelector).append(selectBox, itemSelectButton);
+        $(".calculator__selections").append(itemSelector);
+        $(itemSelectButton).on("click", this.startFishSelector);
     }
     startFishSelector(){
+        console.log('starting fish selector');
         const item = $(".item-selector :selected").text();
         $('.item-selector').detach();
         if(item === "Trash" || item === "Algae"){
